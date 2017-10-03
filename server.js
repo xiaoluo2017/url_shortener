@@ -17,7 +17,7 @@ app.get("/*", function (req, res) {
     insert(hashcode, original_url);
     res.send({ original_url: original_url, short_url: "https://rough-hardcover.glitch.me/" + hashcode});
   } else if (/^[0-9]{4}/.test(original_url)) {
-    mongo.connect("mongodb://" + DB_USERNAME + ":" + DB_PASSWORD + @ds137101.mlab.com:37101/url_shortener", function(err, db) {
+    mongo.connect("mongodb://" + DB_USERNAME + ":" + DB_PASSWORD + "@ds137101.mlab.com:37101/url_shortener", function(err, db) {
       if (err) throw err;
       var collection = db.collection("urls");
       collection.find({
@@ -47,7 +47,7 @@ function getHashcode(str) {
 };
 
 function insert(hashcode, original_url) {
-  mongo.connect("mongodb://" + DB_USERNAME + ":" + DB_PASSWORD + @ds137101.mlab.com:37101/url_shortener", function(err, db) {
+  mongo.connect("mongodb://" + DB_USERNAME + ":" + DB_PASSWORD + "@ds137101.mlab.com:37101/url_shortener", function(err, db) {
     if (err) throw err;
     var collection = db.collection("urls");
     collection.insert({
@@ -60,6 +60,6 @@ function insert(hashcode, original_url) {
   })
 }
 
-app.listen(process.env.PORT, function () {
-  console.log("Server start");
+app.listen(8080, function () {
+  console.log("Server start at port: 8080");
 });
