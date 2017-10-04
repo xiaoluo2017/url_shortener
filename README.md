@@ -3,7 +3,7 @@ Get a shortened URL of the original URL
 
 ## Usage
 * ```git clone https://github.com/xiaoluo2017/url_shortener```
-* change the MongoDB URI
+* initial the MongoDB_URI
 * ```npm install```
 * ```npm start```
 * open your browser and go to localhost:8080
